@@ -1,0 +1,556 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		45130A351DE585780040C7C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A341DE585780040C7C1 /* main.m */; };
+		45130A381DE585780040C7C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A371DE585780040C7C1 /* AppDelegate.m */; };
+		45130A3B1DE585780040C7C1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A3A1DE585780040C7C1 /* ViewController.m */; };
+		45130A3E1DE585780040C7C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45130A3C1DE585780040C7C1 /* Main.storyboard */; };
+		45130A411DE585780040C7C1 /* SmartBluetooth.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 45130A3F1DE585780040C7C1 /* SmartBluetooth.xcdatamodeld */; };
+		45130A431DE585780040C7C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45130A421DE585780040C7C1 /* Assets.xcassets */; };
+		45130A461DE585780040C7C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45130A441DE585780040C7C1 /* LaunchScreen.storyboard */; };
+		45130A511DE585780040C7C1 /* SmartBluetoothTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A501DE585780040C7C1 /* SmartBluetoothTests.m */; };
+		45130A5C1DE585780040C7C1 /* SmartBluetoothUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A5B1DE585780040C7C1 /* SmartBluetoothUITests.m */; };
+		45130A6B1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A6A1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		45130A4D1DE585780040C7C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45130A281DE585780040C7C1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45130A2F1DE585780040C7C1;
+			remoteInfo = SmartBluetooth;
+		};
+		45130A581DE585780040C7C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45130A281DE585780040C7C1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45130A2F1DE585780040C7C1;
+			remoteInfo = SmartBluetooth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		45130A301DE585780040C7C1 /* SmartBluetooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartBluetooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45130A341DE585780040C7C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		45130A361DE585780040C7C1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		45130A371DE585780040C7C1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		45130A391DE585780040C7C1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		45130A3A1DE585780040C7C1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		45130A3D1DE585780040C7C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		45130A401DE585780040C7C1 /* SmartBluetooth.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmartBluetooth.xcdatamodel; sourceTree = "<group>"; };
+		45130A421DE585780040C7C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		45130A451DE585780040C7C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		45130A471DE585780040C7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45130A4C1DE585780040C7C1 /* SmartBluetoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartBluetoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45130A501DE585780040C7C1 /* SmartBluetoothTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartBluetoothTests.m; sourceTree = "<group>"; };
+		45130A521DE585780040C7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45130A571DE585780040C7C1 /* SmartBluetoothUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartBluetoothUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45130A5B1DE585780040C7C1 /* SmartBluetoothUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartBluetoothUITests.m; sourceTree = "<group>"; };
+		45130A5D1DE585780040C7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45130A691DE585AB0040C7C1 /* SCUBluetoothDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUBluetoothDeviceManager.h; sourceTree = "<group>"; };
+		45130A6A1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUBluetoothDeviceManager.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		45130A2D1DE585780040C7C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45130A491DE585780040C7C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45130A541DE585780040C7C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45130A271DE585780040C7C1 = {
+			isa = PBXGroup;
+			children = (
+				45130A321DE585780040C7C1 /* SmartBluetooth */,
+				45130A4F1DE585780040C7C1 /* SmartBluetoothTests */,
+				45130A5A1DE585780040C7C1 /* SmartBluetoothUITests */,
+				45130A311DE585780040C7C1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		45130A311DE585780040C7C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45130A301DE585780040C7C1 /* SmartBluetooth.app */,
+				45130A4C1DE585780040C7C1 /* SmartBluetoothTests.xctest */,
+				45130A571DE585780040C7C1 /* SmartBluetoothUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45130A321DE585780040C7C1 /* SmartBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				45130A361DE585780040C7C1 /* AppDelegate.h */,
+				45130A371DE585780040C7C1 /* AppDelegate.m */,
+				45130A391DE585780040C7C1 /* ViewController.h */,
+				45130A3A1DE585780040C7C1 /* ViewController.m */,
+				45130A3C1DE585780040C7C1 /* Main.storyboard */,
+				45130A421DE585780040C7C1 /* Assets.xcassets */,
+				45130A441DE585780040C7C1 /* LaunchScreen.storyboard */,
+				45130A471DE585780040C7C1 /* Info.plist */,
+				45130A3F1DE585780040C7C1 /* SmartBluetooth.xcdatamodeld */,
+				45130A331DE585780040C7C1 /* Supporting Files */,
+				45130A691DE585AB0040C7C1 /* SCUBluetoothDeviceManager.h */,
+				45130A6A1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m */,
+			);
+			path = SmartBluetooth;
+			sourceTree = "<group>";
+		};
+		45130A331DE585780040C7C1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45130A341DE585780040C7C1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45130A4F1DE585780040C7C1 /* SmartBluetoothTests */ = {
+			isa = PBXGroup;
+			children = (
+				45130A501DE585780040C7C1 /* SmartBluetoothTests.m */,
+				45130A521DE585780040C7C1 /* Info.plist */,
+			);
+			path = SmartBluetoothTests;
+			sourceTree = "<group>";
+		};
+		45130A5A1DE585780040C7C1 /* SmartBluetoothUITests */ = {
+			isa = PBXGroup;
+			children = (
+				45130A5B1DE585780040C7C1 /* SmartBluetoothUITests.m */,
+				45130A5D1DE585780040C7C1 /* Info.plist */,
+			);
+			path = SmartBluetoothUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		45130A2F1DE585780040C7C1 /* SmartBluetooth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45130A601DE585780040C7C1 /* Build configuration list for PBXNativeTarget "SmartBluetooth" */;
+			buildPhases = (
+				45130A2C1DE585780040C7C1 /* Sources */,
+				45130A2D1DE585780040C7C1 /* Frameworks */,
+				45130A2E1DE585780040C7C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartBluetooth;
+			productName = SmartBluetooth;
+			productReference = 45130A301DE585780040C7C1 /* SmartBluetooth.app */;
+			productType = "com.apple.product-type.application";
+		};
+		45130A4B1DE585780040C7C1 /* SmartBluetoothTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45130A631DE585780040C7C1 /* Build configuration list for PBXNativeTarget "SmartBluetoothTests" */;
+			buildPhases = (
+				45130A481DE585780040C7C1 /* Sources */,
+				45130A491DE585780040C7C1 /* Frameworks */,
+				45130A4A1DE585780040C7C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45130A4E1DE585780040C7C1 /* PBXTargetDependency */,
+			);
+			name = SmartBluetoothTests;
+			productName = SmartBluetoothTests;
+			productReference = 45130A4C1DE585780040C7C1 /* SmartBluetoothTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		45130A561DE585780040C7C1 /* SmartBluetoothUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45130A661DE585780040C7C1 /* Build configuration list for PBXNativeTarget "SmartBluetoothUITests" */;
+			buildPhases = (
+				45130A531DE585780040C7C1 /* Sources */,
+				45130A541DE585780040C7C1 /* Frameworks */,
+				45130A551DE585780040C7C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45130A591DE585780040C7C1 /* PBXTargetDependency */,
+			);
+			name = SmartBluetoothUITests;
+			productName = SmartBluetoothUITests;
+			productReference = 45130A571DE585780040C7C1 /* SmartBluetoothUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		45130A281DE585780040C7C1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = SmartCodeUnited;
+				TargetAttributes = {
+					45130A2F1DE585780040C7C1 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 2E9E9T8S85;
+						ProvisioningStyle = Automatic;
+					};
+					45130A4B1DE585780040C7C1 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 45130A2F1DE585780040C7C1;
+					};
+					45130A561DE585780040C7C1 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 45130A2F1DE585780040C7C1;
+					};
+				};
+			};
+			buildConfigurationList = 45130A2B1DE585780040C7C1 /* Build configuration list for PBXProject "SmartBluetooth" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 45130A271DE585780040C7C1;
+			productRefGroup = 45130A311DE585780040C7C1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				45130A2F1DE585780040C7C1 /* SmartBluetooth */,
+				45130A4B1DE585780040C7C1 /* SmartBluetoothTests */,
+				45130A561DE585780040C7C1 /* SmartBluetoothUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45130A2E1DE585780040C7C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45130A461DE585780040C7C1 /* LaunchScreen.storyboard in Resources */,
+				45130A431DE585780040C7C1 /* Assets.xcassets in Resources */,
+				45130A3E1DE585780040C7C1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45130A4A1DE585780040C7C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45130A551DE585780040C7C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45130A2C1DE585780040C7C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45130A411DE585780040C7C1 /* SmartBluetooth.xcdatamodeld in Sources */,
+				45130A6B1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m in Sources */,
+				45130A3B1DE585780040C7C1 /* ViewController.m in Sources */,
+				45130A381DE585780040C7C1 /* AppDelegate.m in Sources */,
+				45130A351DE585780040C7C1 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45130A481DE585780040C7C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45130A511DE585780040C7C1 /* SmartBluetoothTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45130A531DE585780040C7C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45130A5C1DE585780040C7C1 /* SmartBluetoothUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		45130A4E1DE585780040C7C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45130A2F1DE585780040C7C1 /* SmartBluetooth */;
+			targetProxy = 45130A4D1DE585780040C7C1 /* PBXContainerItemProxy */;
+		};
+		45130A591DE585780040C7C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45130A2F1DE585780040C7C1 /* SmartBluetooth */;
+			targetProxy = 45130A581DE585780040C7C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		45130A3C1DE585780040C7C1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45130A3D1DE585780040C7C1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		45130A441DE585780040C7C1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45130A451DE585780040C7C1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		45130A5E1DE585780040C7C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		45130A5F1DE585780040C7C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		45130A611DE585780040C7C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2E9E9T8S85;
+				INFOPLIST_FILE = SmartBluetooth/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartcodeunited.lib.bluetooth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		45130A621DE585780040C7C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2E9E9T8S85;
+				INFOPLIST_FILE = SmartBluetooth/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartcodeunited.lib.bluetooth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		45130A641DE585780040C7C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SmartBluetoothTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartcodeunited.lib.bluetooth.SmartBluetoothTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartBluetooth.app/SmartBluetooth";
+			};
+			name = Debug;
+		};
+		45130A651DE585780040C7C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SmartBluetoothTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartcodeunited.lib.bluetooth.SmartBluetoothTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartBluetooth.app/SmartBluetooth";
+			};
+			name = Release;
+		};
+		45130A671DE585780040C7C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SmartBluetoothUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartcodeunited.lib.bluetooth.SmartBluetoothUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SmartBluetooth;
+			};
+			name = Debug;
+		};
+		45130A681DE585780040C7C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SmartBluetoothUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartcodeunited.lib.bluetooth.SmartBluetoothUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SmartBluetooth;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		45130A2B1DE585780040C7C1 /* Build configuration list for PBXProject "SmartBluetooth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45130A5E1DE585780040C7C1 /* Debug */,
+				45130A5F1DE585780040C7C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45130A601DE585780040C7C1 /* Build configuration list for PBXNativeTarget "SmartBluetooth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45130A611DE585780040C7C1 /* Debug */,
+				45130A621DE585780040C7C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		45130A631DE585780040C7C1 /* Build configuration list for PBXNativeTarget "SmartBluetoothTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45130A641DE585780040C7C1 /* Debug */,
+				45130A651DE585780040C7C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		45130A661DE585780040C7C1 /* Build configuration list for PBXNativeTarget "SmartBluetoothUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45130A671DE585780040C7C1 /* Debug */,
+				45130A681DE585780040C7C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		45130A3F1DE585780040C7C1 /* SmartBluetooth.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				45130A401DE585780040C7C1 /* SmartBluetooth.xcdatamodel */,
+			);
+			currentVersion = 45130A401DE585780040C7C1 /* SmartBluetooth.xcdatamodel */;
+			path = SmartBluetooth.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 45130A281DE585780040C7C1 /* Project object */;
+}
