@@ -16,17 +16,41 @@
 
 #import "SCUBluetoothDeviceManager.h"
 
+@interface SCUBluetoothDeviceManager () <CBCentralManagerDelegate> {
+    
+}
+
+@property(nonatomic, strong)CBCentralManager *centralManager;
+@property(nonatomic, assign)BOOL isSupportBle;
+@property(nonatomic, assign)BOOL isBluetoothEnable;
+
+@property(nonatomic, strong)NSDictionary *centralManagerOptionDic;
+@property(nonatomic, strong)NSMutableArray *deviceListArray;
+
+@end
+
 @implementation SCUBluetoothDeviceManager
 
 + (SCUBluetoothDeviceManager*)sharedInstance
 {
     static dispatch_once_t pred;
-    static SCUBluetoothDeviceManager *sharedInstance = nil;
+    static SCUBluetoothDeviceManager *_sharedInstance = nil;
     
     dispatch_once(&pred, ^{
-        sharedInstance = [[SCUBluetoothDeviceManager alloc] init];
+        _sharedInstance = [[SCUBluetoothDeviceManager alloc] init];
+        
+        // Initialize CBCentralManager
+        _sharedInstance.centralManager = [[CBCentralManager alloc] initWithDelegate:_sharedInstance queue:nil];
+        // Default bluetooth supported
+        _sharedInstance.isSupportBle = YES;
+        // Default bluetooth close
+        _sharedInstance.isBluetoothEnable = NO;
+        
+        _sharedInstance.centralManagerOptionDic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:false], CBCentralManagerScanOptionAllowDuplicatesKey, nil];
+        
+        _sharedInstance.deviceListArray = [NSMutableArray array];
     });
-    return sharedInstance;
+    return _sharedInstance;
 }
 
 - (void)setSCUBluetoothDeviceManagerDelegate:(id<SCUBluetoothDeviceManagerDelegate>)delegate
@@ -35,12 +59,12 @@
 
 - (BOOL)isSupported
 {
-    return NO;
+    return self.isSupportBle;
 }
 
 - (BOOL)isEnabled
 {
-    return NO;
+    return self.isBluetoothEnable;
 }
 
 - (BOOL)isMACAddressValid:(NSString *)address
@@ -94,5 +118,41 @@
 {
 }
 
+// Listening change of bluetooth state
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central {
+    switch (central.state) {
+            // PoweredOff
+        case CBManagerStatePoweredOff:
+            NSLog(@"PoweredOff");
+            self.isBluetoothEnable = NO;
+            break;
+            
+            // PoweredOn
+        case CBManagerStatePoweredOn:
+            NSLog(@"PoweredOn");
+            self.isBluetoothEnable = YES;
+            break;
+            
+            // Resetting
+        case CBManagerStateResetting:
+            break;
+            
+            // Unsupported
+        case CBManagerStateUnsupported:
+            NSLog(@"Unsupported");
+            self.isSupportBle = NO;
+            break;
+            
+            // Unauthorized
+        case CBManagerStateUnauthorized:
+            break;
+            
+            // Unknown state
+        case CBManagerStateUnknown:
+            break;
+        default:
+            break;
+    }
+}
 
 @end
