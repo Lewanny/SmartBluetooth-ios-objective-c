@@ -49,11 +49,11 @@
 
 
 - (IBAction)scanDeviceMethod:(id)sender {
-   
+    [self.bluetoothDeviceManager startScanningWithType:SCUBluetoothDeviceManagerBluetoothTypeClassic];
 }
 
 - (IBAction)stopScanDeviceMethod:(id)sender {
-
+    [self.bluetoothDeviceManager stopScanningWithType:SCUBluetoothDeviceManagerBluetoothTypeClassic];
 }
 
 

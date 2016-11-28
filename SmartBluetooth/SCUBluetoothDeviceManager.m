@@ -35,7 +35,6 @@
 {
     static dispatch_once_t pred;
     static SCUBluetoothDeviceManager *_sharedInstance = nil;
-    
     dispatch_once(&pred, ^{
         _sharedInstance = [[SCUBluetoothDeviceManager alloc] init];
         
@@ -55,6 +54,7 @@
 
 - (void)setSCUBluetoothDeviceManagerDelegate:(id<SCUBluetoothDeviceManagerDelegate>)delegate
 {
+    
 }
 
 - (BOOL)isSupported
@@ -69,7 +69,27 @@
 
 - (BOOL)isMACAddressValid:(NSString *)address
 {
-    return NO;
+    //    if (address == nil || address.length != ADDRESS_LENGTH) {
+    //        return false;
+    //    }
+    //    for (int i = 0; i < ADDRESS_LENGTH; i++) {
+    //        char c = address.charAt(i);
+    //        switch (i % 3) {
+    //            case 0:
+    //            case 1:
+    //                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F')) {
+    //                    // hex character, OK
+    //                    break;
+    //                }
+    //                return false;
+    //            case 2:
+    //                if (c == ':') {
+    //                    break;  // OK
+    //                }
+    //                return false;
+    //        }
+    //    }
+    return true;
 }
 
 - (BOOL)isScanningWithType:(SCUBluetoothDeviceManagerBluetoothType)type
@@ -90,6 +110,7 @@
  */
 - (void)startScanningWithType:(SCUBluetoothDeviceManagerBluetoothType)type
 {
+    [self.centralManager scanForPeripheralsWithServices:nil options:self.centralManagerOptionDic];
 }
 
 
@@ -100,6 +121,7 @@
  */
 - (void)stopScanningWithType:(SCUBluetoothDeviceManagerBluetoothType)type
 {
+    [self.centralManager stopScan];
 }
 
 - (void)turnOn
@@ -116,6 +138,16 @@
 
 - (void)disConnectWithPeripheral:(CBPeripheral *)peripheral profile:(SCUBluetoothDeviceManagerBluetoothDeviceProfile)profile
 {
+}
+
+#pragma mark - CBCentralManagerDelegate方法
+// Discover bluetooth device
+- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
+{
+    if (![self.deviceListArray containsObject:peripheral]) {
+        [self.deviceListArray addObject:peripheral];
+        NSLog(@"Discovery Bluetooth Device:%@", peripheral);
+    }
 }
 
 // Listening change of bluetooth state
