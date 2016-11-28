@@ -100,14 +100,18 @@ typedef NS_ENUM(NSUInteger, SCUBluetoothDeviceManagerBluetoothConnectionStatus)
 
 @interface SCUBluetoothDeviceManager : NSObject
 
+
 + (SCUBluetoothDeviceManager *)sharedInstance;
 
 - (void)setSCUBluetoothDeviceManagerDelegate:(id<SCUBluetoothDeviceManagerDelegate>)delegate;
 
+// Is bluetooth supported
 - (BOOL)isSupported;
 
+// Is bluetooth open
 - (BOOL)isEnabled;
 
+// Is macadress available
 - (BOOL)isMACAddressValid:(NSString *)address;
 
 - (BOOL)isScanningWithType:(SCUBluetoothDeviceManagerBluetoothType)type;
@@ -124,8 +128,8 @@ typedef NS_ENUM(NSUInteger, SCUBluetoothDeviceManagerBluetoothConnectionStatus)
 
 
 /**
-Note: You can only scan for Bluetooth LE devices or scan for Classic Bluetooth devices, as described in Bluetooth. You cannot scan for both Bluetooth LE and classic devices at the same time.
-
+ Note: You can only scan for Bluetooth LE devices or scan for Classic Bluetooth devices, as described in Bluetooth. You cannot scan for both Bluetooth LE and classic devices at the same time.
+ 
  @param type Bluetooth Classic or BLE
  */
 - (void)stopScanningWithType:(SCUBluetoothDeviceManagerBluetoothType)type;
