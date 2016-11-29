@@ -24,6 +24,8 @@
 @property(nonatomic, assign)BOOL isSupportBle;
 @property(nonatomic, assign)BOOL isBluetoothEnable;
 
+@property(nonatomic, assign)BOOL isScaning;
+
 @property(nonatomic, strong)NSDictionary *centralManagerOptionDic;
 @property(nonatomic, strong)NSMutableArray *deviceListArray;
 
@@ -45,10 +47,14 @@
         // Default bluetooth close
         _sharedInstance.isBluetoothEnable = NO;
         
+        // Default scaning close
+        _sharedInstance.isScaning = NO;
+        
         _sharedInstance.centralManagerOptionDic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:false], CBCentralManagerScanOptionAllowDuplicatesKey, nil];
         
         _sharedInstance.deviceListArray = [NSMutableArray array];
     });
+    
     return _sharedInstance;
 }
 
@@ -95,8 +101,9 @@
 
 - (BOOL)isScanningWithType:(SCUBluetoothDeviceManagerBluetoothType)type
 {
-    return NO;
+    return self.isScaning;
 }
+
 
 - (BOOL)isConnectedWithPeripheral:(CBPeripheral *)peripheral profile:(SCUBluetoothDeviceManagerBluetoothDeviceProfile)profile
 {
@@ -112,6 +119,7 @@
 - (void)startScanningWithType:(SCUBluetoothDeviceManagerBluetoothType)type
 {
     [self.centralManager scanForPeripheralsWithServices:nil options:self.centralManagerOptionDic];
+    self.isScaning = YES;
 }
 
 
@@ -123,6 +131,7 @@
 - (void)stopScanningWithType:(SCUBluetoothDeviceManagerBluetoothType)type
 {
     [self.centralManager stopScan];
+    self.isScaning = NO;
 }
 
 - (void)turnOn
@@ -139,6 +148,7 @@
 
 - (void)disConnectWithPeripheral:(CBPeripheral *)peripheral profile:(SCUBluetoothDeviceManagerBluetoothDeviceProfile)profile
 {
+    
 }
 
 #pragma mark - CBCentralManagerDelegate方法
