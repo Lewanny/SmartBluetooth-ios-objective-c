@@ -36,6 +36,9 @@
     self.deviceTabelView.dataSource = self;
     [self.deviceTabelView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellDevice];
     [self bluetoothMethod];
+    
+    BOOL macAdressAvalid = [self.bluetoothDeviceManager isMACAddressValid:@"C9:A2:D3:F0:B9:E4"];
+    NSLog(@"Is macAdressAvailable:%d", macAdressAvalid);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -69,28 +69,29 @@
 
 - (BOOL)isMACAddressValid:(NSString *)address
 {
-    //    if (address == nil || address.length != ADDRESS_LENGTH) {
-    //        return false;
-    //    }
-    //    for (int i = 0; i < ADDRESS_LENGTH; i++) {
-    //        char c = address.charAt(i);
-    //        switch (i % 3) {
-    //            case 0:
-    //            case 1:
-    //                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F')) {
-    //                    // hex character, OK
-    //                    break;
-    //                }
-    //                return false;
-    //            case 2:
-    //                if (c == ':') {
-    //                    break;  // OK
-    //                }
-    //                return false;
-    //        }
-    //    }
-    return true;
+    if (address == nil || address.length != 17) {
+        return NO;
+    }
+    for (int i = 0; i < 17; i++) {
+        char c = [address characterAtIndex:i];
+        switch (i % 3) {
+            case 0:
+            case 1:
+                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F')) {
+                    // hex character, OK
+                    break;
+                }
+                return NO;
+            case 2:
+                if (c == ':') {
+                    break;  // OK
+                }
+                return NO;
+        }
+    }
+    return YES;
 }
+
 
 - (BOOL)isScanningWithType:(SCUBluetoothDeviceManagerBluetoothType)type
 {
