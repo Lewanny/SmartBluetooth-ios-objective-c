@@ -60,7 +60,7 @@
 
 - (void)setSCUBluetoothDeviceManagerDelegate:(id<SCUBluetoothDeviceManagerDelegate>)delegate
 {
-    
+    self.delegate = delegate;
 }
 
 - (BOOL)isSupported
@@ -157,7 +157,10 @@
 {
     if (![self.deviceListArray containsObject:peripheral]) {
         [self.deviceListArray addObject:peripheral];
-        NSLog(@"Discovery Bluetooth Device:%@", peripheral);
+
+        if ([self.delegate respondsToSelector:@selector(bluetoothDeviceDidDiscoverBluetoothDevice:)]) {
+            [self.delegate bluetoothDeviceDidDiscoverBluetoothDevice:peripheral];
+        }
     }
 }
 

@@ -39,6 +39,8 @@
     
     BOOL macAdressAvalid = [self.bluetoothDeviceManager isMACAddressValid:@"C9:A2:D3:F0:B9:E4"];
     NSLog(@"Is macAdressAvailable:%d", macAdressAvalid);
+    
+    [self.bluetoothDeviceManager setSCUBluetoothDeviceManagerDelegate:self];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -48,6 +50,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
+}
+
+#pragma mark - SCUBluetoothDeviceManagerDelegate Method
+- (void)bluetoothDeviceDidDiscoverBluetoothDevice:(CBPeripheral *)peripheral {
+    
+    NSLog(@"Discovery Device: %@", peripheral);
 }
 
 

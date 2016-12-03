@@ -89,6 +89,9 @@ typedef NS_ENUM(NSUInteger, SCUBluetoothDeviceManagerBluetoothConnectionStatus)
 
 - (void)bluetoothDeviceBluetoothConnectionStatusDidChange:(SCUBluetoothDeviceManagerBluetoothConnectionStatus)bluetoothConnectionStatus;
 
+// scanning to bleutooth device
+- (void)bluetoothDeviceDidDiscoverBluetoothDevice:(CBPeripheral *)peripheral;
+
 /**
  TODO
  */
@@ -99,6 +102,9 @@ typedef NS_ENUM(NSUInteger, SCUBluetoothDeviceManagerBluetoothConnectionStatus)
 @end
 
 @interface SCUBluetoothDeviceManager : NSObject
+
+// delegate
+@property(nonatomic, strong)id<SCUBluetoothDeviceManagerDelegate> delegate;
 
 
 + (SCUBluetoothDeviceManager *)sharedInstance;
