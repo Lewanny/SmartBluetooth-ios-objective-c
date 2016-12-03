@@ -172,6 +172,9 @@
 // Connecte a bluetooth device successfully
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
+    if ([self.delegate respondsToSelector:@selector(bluetoothDeviceDidConnectdWithPeripheral:)]) {
+        [self.delegate bluetoothDeviceDidConnectdWithPeripheral:peripheral];
+    }
     NSLog(@"Connected to %@ successfully", peripheral.name);
 }
 
@@ -179,13 +182,17 @@
 // Connecte a bluetooth device failed
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
+    if ([self.delegate respondsToSelector:@selector(bluetoothDeviceConnectFailedWithPeripheral:error:)]) {
+        [self.delegate bluetoothDeviceConnectFailedWithPeripheral:peripheral error:error];
+    }
     NSLog(@"Failed to connect to %@. (%@)", peripheral, [error localizedDescription]);
 }
 
 // Disconnecte a bluetooth device 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(nullable NSError *)error {
-    
-    NSLog(@"Disconnecte to %@. (%@)", peripheral, [error localizedDescription]);
+    if ([self.delegate respondsToSelector:@selector(bluetoothDeviceDidDisconnectdWithPeripheral:)]) {
+        [self.delegate bluetoothDeviceDidDisconnectdWithPeripheral:peripheral];
+    }
 }
 
 
