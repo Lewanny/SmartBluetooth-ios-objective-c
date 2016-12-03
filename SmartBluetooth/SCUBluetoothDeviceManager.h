@@ -90,7 +90,7 @@ typedef NS_ENUM(NSUInteger, SCUBluetoothDeviceManagerBluetoothConnectionStatus)
 - (void)bluetoothDeviceBluetoothConnectionStatusDidChange:(SCUBluetoothDeviceManagerBluetoothConnectionStatus)bluetoothConnectionStatus;
 
 // scanning to bleutooth device
-- (void)bluetoothDeviceDidDiscoverBluetoothDevice:(CBPeripheral *)peripheral;
+- (void)bluetoothDeviceDidDiscoverBluetoothDevice:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData;
 
 /**
  TODO

@@ -144,11 +144,12 @@
 
 - (void)connectWithPeripheral:(CBPeripheral *)peripheral profile:(SCUBluetoothDeviceManagerBluetoothDeviceProfile)profile
 {
+    [self.centralManager connectPeripheral:peripheral options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey]];
 }
 
 - (void)disConnectWithPeripheral:(CBPeripheral *)peripheral profile:(SCUBluetoothDeviceManagerBluetoothDeviceProfile)profile
 {
-    
+    [self.centralManager cancelPeripheralConnection:peripheral];
 }
 
 #pragma mark - CBCentralManagerDelegate方法
@@ -158,11 +159,35 @@
     if (![self.deviceListArray containsObject:peripheral]) {
         [self.deviceListArray addObject:peripheral];
 
-        if ([self.delegate respondsToSelector:@selector(bluetoothDeviceDidDiscoverBluetoothDevice:)]) {
-            [self.delegate bluetoothDeviceDidDiscoverBluetoothDevice:peripheral];
+        NSLog(@"发现设备: %@", peripheral);
+        NSLog(@"发现设备信息: %@", advertisementData);
+        
+        if ([self.delegate respondsToSelector:@selector(bluetoothDeviceDidDiscoverBluetoothDevice:advertisementData:)]) {
+            [self.delegate bluetoothDeviceDidDiscoverBluetoothDevice:peripheral advertisementData:advertisementData];
         }
     }
 }
+
+
+// Connecte a bluetooth device successfully
+- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
+{
+    NSLog(@"Connected to %@ successfully", peripheral.name);
+}
+
+
+// Connecte a bluetooth device failed
+- (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
+{
+    NSLog(@"Failed to connect to %@. (%@)", peripheral, [error localizedDescription]);
+}
+
+// Disconnecte a bluetooth device 
+- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(nullable NSError *)error {
+    
+    NSLog(@"Disconnecte to %@. (%@)", peripheral, [error localizedDescription]);
+}
+
 
 // Listening change of bluetooth state
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
