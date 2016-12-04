@@ -89,6 +89,44 @@ typedef NS_ENUM(NSUInteger, SCUBluetoothDeviceManagerBluetoothConnectionStatus)
 
 - (void)bluetoothDeviceBluetoothConnectionStatusDidChange:(SCUBluetoothDeviceManagerBluetoothConnectionStatus)bluetoothConnectionStatus;
 
+
+/**
+ scanning to bleutooth device
+ 
+ @param peripheral        CBPeripheral object
+ @param advertisementData advertisementData Dictionary
+ */
+- (void)bluetoothDeviceDidDiscoverBluetoothDevice:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData;
+
+
+
+/**
+ Connecte a bluetooth device successfully
+
+ @param peripheral Connected CBPeripheral object
+ */
+- (void)bluetoothDeviceDidConnectdWithPeripheral:(CBPeripheral *)peripheral;
+
+
+/**
+ Connecte a bluetooth device failed
+
+ @param peripheral Failed connected CBPeripheral object
+ @param erroor     Failed connected error
+ */
+- (void)bluetoothDeviceConnectFailedWithPeripheral:(CBPeripheral *)peripheral error:(NSError *)erroor;
+
+
+
+/**
+ Disconnect a bluetooth device
+
+ @param peripheral Disconnecte CBPeripheral object
+ */
+- (void)bluetoothDeviceDidDisconnectdWithPeripheral:(CBPeripheral *)peripheral;
+
+
+
 /**
  TODO
  */
@@ -99,6 +137,9 @@ typedef NS_ENUM(NSUInteger, SCUBluetoothDeviceManagerBluetoothConnectionStatus)
 @end
 
 @interface SCUBluetoothDeviceManager : NSObject
+
+// delegate
+@property(nonatomic, strong)id<SCUBluetoothDeviceManagerDelegate> delegate;
 
 
 + (SCUBluetoothDeviceManager *)sharedInstance;

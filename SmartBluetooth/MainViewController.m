@@ -23,6 +23,8 @@
 @property(nonatomic, strong) SCUBluetoothDeviceManager *bluetoothDeviceManager;
 @property (weak, nonatomic) IBOutlet UITableView *deviceTabelView;
 
+@property (nonatomic, strong)NSMutableArray *deviceListArr;
+
 @end
 
 @implementation MainViewController
@@ -31,20 +33,47 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.deviceListArr = [NSMutableArray array];
     self.view.backgroundColor = [UIColor whiteColor];
     self.deviceTabelView.delegate = self;
     self.deviceTabelView.dataSource = self;
     [self.deviceTabelView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellDevice];
+    
     [self bluetoothMethod];
+    
+    BOOL macAdressAvalid = [self.bluetoothDeviceManager isMACAddressValid:@"C9:A2:D3:F0:B9:E4"];
+    NSLog(@"Is macAdressAvailable:%d", macAdressAvalid);
+    
+    [self.bluetoothDeviceManager setSCUBluetoothDeviceManagerDelegate:self];
+}
+
+#pragma mark - TableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.deviceListArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellDevice forIndexPath:indexPath];
+    CBPeripheral *peripheral = [self.deviceListArr objectAtIndex:indexPath.row];
+    if (peripheral.name != nil) {
+        cell.textLabel.text = peripheral.name;
+    } else {
+        cell.textLabel.text = @"<Null>";
+    }
     return cell;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CBPeripheral *peripheral = [self.deviceListArr objectAtIndex:indexPath.row];
+    [self.bluetoothDeviceManager connectWithPeripheral:peripheral profile:SCUBluetoothDeviceManagerBluetoothDeviceProfileA2DP];
+}
+
+
+#pragma mark - SCUBluetoothDeviceManagerDelegate Method
+- (void)bluetoothDeviceDidDiscoverBluetoothDevice:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData {
+    
+    [self.deviceListArr addObject:peripheral];
+    [self.deviceTabelView reloadData];
 }
 
 

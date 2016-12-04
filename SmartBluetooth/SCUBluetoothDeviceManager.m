@@ -24,6 +24,8 @@
 @property(nonatomic, assign)BOOL isSupportBle;
 @property(nonatomic, assign)BOOL isBluetoothEnable;
 
+@property(nonatomic, assign)BOOL isScaning;
+
 @property(nonatomic, strong)NSDictionary *centralManagerOptionDic;
 @property(nonatomic, strong)NSMutableArray *deviceListArray;
 
@@ -45,16 +47,20 @@
         // Default bluetooth close
         _sharedInstance.isBluetoothEnable = NO;
         
+        // Default scaning close
+        _sharedInstance.isScaning = NO;
+        
         _sharedInstance.centralManagerOptionDic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:false], CBCentralManagerScanOptionAllowDuplicatesKey, nil];
         
         _sharedInstance.deviceListArray = [NSMutableArray array];
     });
+    
     return _sharedInstance;
 }
 
 - (void)setSCUBluetoothDeviceManagerDelegate:(id<SCUBluetoothDeviceManagerDelegate>)delegate
 {
-    
+    self.delegate = delegate;
 }
 
 - (BOOL)isSupported
@@ -69,33 +75,35 @@
 
 - (BOOL)isMACAddressValid:(NSString *)address
 {
-    //    if (address == nil || address.length != ADDRESS_LENGTH) {
-    //        return false;
-    //    }
-    //    for (int i = 0; i < ADDRESS_LENGTH; i++) {
-    //        char c = address.charAt(i);
-    //        switch (i % 3) {
-    //            case 0:
-    //            case 1:
-    //                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F')) {
-    //                    // hex character, OK
-    //                    break;
-    //                }
-    //                return false;
-    //            case 2:
-    //                if (c == ':') {
-    //                    break;  // OK
-    //                }
-    //                return false;
-    //        }
-    //    }
-    return true;
+    if (address == nil || address.length != 17) {
+        return NO;
+    }
+    for (int i = 0; i < 17; i++) {
+        char c = [address characterAtIndex:i];
+        switch (i % 3) {
+            case 0:
+            case 1:
+                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F')) {
+                    // hex character, OK
+                    break;
+                }
+                return NO;
+            case 2:
+                if (c == ':') {
+                    break;  // OK
+                }
+                return NO;
+        }
+    }
+    return YES;
 }
+
 
 - (BOOL)isScanningWithType:(SCUBluetoothDeviceManagerBluetoothType)type
 {
-    return NO;
+    return self.isScaning;
 }
+
 
 - (BOOL)isConnectedWithPeripheral:(CBPeripheral *)peripheral profile:(SCUBluetoothDeviceManagerBluetoothDeviceProfile)profile
 {
@@ -111,6 +119,7 @@
 - (void)startScanningWithType:(SCUBluetoothDeviceManagerBluetoothType)type
 {
     [self.centralManager scanForPeripheralsWithServices:nil options:self.centralManagerOptionDic];
+    self.isScaning = YES;
 }
 
 
@@ -122,6 +131,7 @@
 - (void)stopScanningWithType:(SCUBluetoothDeviceManagerBluetoothType)type
 {
     [self.centralManager stopScan];
+    self.isScaning = NO;
 }
 
 - (void)turnOn
@@ -134,10 +144,12 @@
 
 - (void)connectWithPeripheral:(CBPeripheral *)peripheral profile:(SCUBluetoothDeviceManagerBluetoothDeviceProfile)profile
 {
+    [self.centralManager connectPeripheral:peripheral options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey]];
 }
 
 - (void)disConnectWithPeripheral:(CBPeripheral *)peripheral profile:(SCUBluetoothDeviceManagerBluetoothDeviceProfile)profile
 {
+    [self.centralManager cancelPeripheralConnection:peripheral];
 }
 
 #pragma mark - CBCentralManagerDelegate方法
@@ -146,9 +158,43 @@
 {
     if (![self.deviceListArray containsObject:peripheral]) {
         [self.deviceListArray addObject:peripheral];
-        NSLog(@"Discovery Bluetooth Device:%@", peripheral);
+
+        NSLog(@"发现设备: %@", peripheral);
+        NSLog(@"发现设备信息: %@", advertisementData);
+        
+        if ([self.delegate respondsToSelector:@selector(bluetoothDeviceDidDiscoverBluetoothDevice:advertisementData:)]) {
+            [self.delegate bluetoothDeviceDidDiscoverBluetoothDevice:peripheral advertisementData:advertisementData];
+        }
     }
 }
+
+
+// Connecte a bluetooth device successfully
+- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
+{
+    if ([self.delegate respondsToSelector:@selector(bluetoothDeviceDidConnectdWithPeripheral:)]) {
+        [self.delegate bluetoothDeviceDidConnectdWithPeripheral:peripheral];
+    }
+    NSLog(@"Connected to %@ successfully", peripheral.name);
+}
+
+
+// Connecte a bluetooth device failed
+- (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
+{
+    if ([self.delegate respondsToSelector:@selector(bluetoothDeviceConnectFailedWithPeripheral:error:)]) {
+        [self.delegate bluetoothDeviceConnectFailedWithPeripheral:peripheral error:error];
+    }
+    NSLog(@"Failed to connect to %@. (%@)", peripheral, [error localizedDescription]);
+}
+
+// Disconnecte a bluetooth device 
+- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(nullable NSError *)error {
+    if ([self.delegate respondsToSelector:@selector(bluetoothDeviceDidDisconnectdWithPeripheral:)]) {
+        [self.delegate bluetoothDeviceDidDisconnectdWithPeripheral:peripheral];
+    }
+}
+
 
 // Listening change of bluetooth state
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
