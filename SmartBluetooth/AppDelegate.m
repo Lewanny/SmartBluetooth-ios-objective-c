@@ -26,6 +26,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // cocoalumberjack init
+    [self initWithCocoaLumberjackLog];
+    
     MainViewController *mainVC = [[MainViewController alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:mainVC];
     self.window.rootViewController = navi;
@@ -84,7 +88,7 @@
                      * The store could not be migrated to the current model version.
                      Check the error message to determine what the actual problem was.
                      */
-                    NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+                    DLog(@"Unresolved error %@, %@", error, error.userInfo);
                     abort();
                 }
             }];
@@ -94,6 +98,21 @@
     return _persistentContainer;
 }
 
+/**
+ * cocoalumberjack init
+ */
+-(void)initWithCocoaLumberjackLog{
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+    
+    DDFileLogger *fileLogger = [[DDFileLogger alloc] init]; // File Logger
+    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+    [DDLog addLogger:fileLogger];
+}
+
+
 #pragma mark - Core Data Saving support
 
 - (void)saveContext {
@@ -102,7 +121,7 @@
     if ([context hasChanges] && ![context save:&error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+        DLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
 }

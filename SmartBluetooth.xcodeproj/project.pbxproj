@@ -56,6 +56,7 @@
 		45130A5D1DE585780040C7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45130A691DE585AB0040C7C1 /* SCUBluetoothDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUBluetoothDeviceManager.h; sourceTree = "<group>"; };
 		45130A6A1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUBluetoothDeviceManager.m; sourceTree = "<group>"; };
+		4927A21B1E00EE9500DEDF6A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		A04391A65EA2D3F7C8DFF2E8 /* Pods-SmartBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartBluetooth.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartBluetooth/Pods-SmartBluetooth.release.xcconfig"; sourceTree = "<group>"; };
 		BEDD3A689E4B776A2367A17F /* Pods-SmartBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartBluetooth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartBluetooth/Pods-SmartBluetooth.debug.xcconfig"; sourceTree = "<group>"; };
 		CAB107E61DEBD4CE0045708E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				45130A341DE585780040C7C1 /* main.m */,
+				4927A21B1E00EE9500DEDF6A /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -516,6 +518,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AXTESR7SA4;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SmartBluetooth/PrefixHeader.pch;
 				INFOPLIST_FILE = SmartBluetooth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -530,6 +534,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AXTESR7SA4;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SmartBluetooth/PrefixHeader.pch;
 				INFOPLIST_FILE = SmartBluetooth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -42,9 +42,10 @@
     [self bluetoothMethod];
     
     BOOL macAdressAvalid = [self.bluetoothDeviceManager isMACAddressValid:@"C9:A2:D3:F0:B9:E4"];
-    NSLog(@"Is macAdressAvailable:%d", macAdressAvalid);
+    DLog(@"Is macAdressAvailable:%d", macAdressAvalid);
     
     [self.bluetoothDeviceManager setSCUBluetoothDeviceManagerDelegate:self];
+    
 }
 
 #pragma mark - TableViewDelegate
@@ -65,19 +66,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     CBPeripheral *peripheral = [self.deviceListArr objectAtIndex:indexPath.row];
-    [self.bluetoothDeviceManager connectWithPeripheral:peripheral profile:SCUBluetoothDeviceManagerBluetoothDeviceProfileA2DP];
+    [self.bluetoothDeviceManager connectWithPeripheral:peripheral bluetoothType:SCUBluetoothDeviceManagerBluetoothTypeBLE bluetoothDeviceProfile:SCUBluetoothDeviceManagerBluetoothDeviceProfileUnknown];
+
 }
 
 
 #pragma mark - SCUBluetoothDeviceManagerDelegate Method
-- (void)bluetoothDeviceDidDiscoverBluetoothDevice:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData {
+- (void)bluetoothDeviceBluetoothScanningBLEDidReceiveWithPeripheral:(CBPeripheral *)peripheral RSSI:(NSNumber *)rssi advertisementData:(NSDictionary *)advertisementData{
     
     [self.deviceListArr addObject:peripheral];
     [self.deviceTabelView reloadData];
 }
 
+// connect
+- (void)bluetoothDeviceBluetoothConnectionStatusDidChangeWithPeripheral:(CBPeripheral *)peripheral bluetoothType:(SCUBluetoothDeviceManagerBluetoothType)bluetoothType bluetoothDeviceProfile:(SCUBluetoothDeviceManagerBluetoothDeviceProfile)bluetoothDeviceProfile bluetoothConnectionStatus:(SCUBluetoothDeviceManagerBluetoothConnectionStatus)bluetoothConnectionStatus{
+    
+}
 
 - (IBAction)scanDeviceMethod:(id)sender {
+    [self.deviceListArr removeAllObjects];
+    [self.deviceTabelView reloadData];
     [self.bluetoothDeviceManager startScanningWithType:SCUBluetoothDeviceManagerBluetoothTypeClassic];
 }
 
@@ -93,8 +101,8 @@
     
     dispatch_queue_t queue= dispatch_get_main_queue();
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), queue, ^{
-        NSLog(@"Is support Bluetooth: %d", [[SCUBluetoothDeviceManager sharedInstance] isSupported]);
-        NSLog(@"Is Bluetooth open: %d", [[SCUBluetoothDeviceManager sharedInstance] isEnabled]);
+        DLog(@"Is support Bluetooth: %d", [[SCUBluetoothDeviceManager sharedInstance] isSupported]);
+        DLog(@"Is Bluetooth open: %d", [[SCUBluetoothDeviceManager sharedInstance] isEnabled]);
         
         
     });
