@@ -16,7 +16,7 @@
 
 #import "SCUBluetoothDeviceManager.h"
 
-@interface SCUBluetoothDeviceManager () <CBCentralManagerDelegate>
+@interface SCUBluetoothDeviceManager () <CBCentralManagerDelegate,CBPeripheralDelegate>
 {
     
 }
@@ -170,6 +170,9 @@
     if ([self.delegate respondsToSelector:@selector(bluetoothDeviceBluetoothConnectionStatusDidChangeWithPeripheral:bluetoothType:bluetoothDeviceProfile:bluetoothConnectionStatus:)])
     {
         [self.delegate bluetoothDeviceBluetoothConnectionStatusDidChangeWithPeripheral:peripheral bluetoothType:SCUBluetoothDeviceManagerBluetoothTypeBLE bluetoothDeviceProfile:SCUBluetoothDeviceManagerBluetoothDeviceProfileUnknown bluetoothConnectionStatus:SCUBluetoothDeviceManagerBluetoothConnectionStatusConnected];
+        
+        [peripheral setDelegate:self];
+        [peripheral discoverServices:nil];
     }
 }
 
@@ -215,5 +218,70 @@
             break;
     }
 }
+
+#pragma mark - CBPeripheralDelegate
+
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(nullable NSError *)error{
+    
+    if (error) {
+        DLog(@"error:%@",error.localizedDescription);
+        return ;
+    }
+    
+    for (CBService *service in peripheral.services) {
+        [peripheral discoverCharacteristics:nil forService:service];
+    }
+}
+
+
+
+- (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(nullable NSError *)error{
+    
+    if (error) {
+        DLog(@"error:%@",error.localizedDescription);
+        return ;
+    }
+    
+    for (CBCharacteristic *characteristic in service.characteristics) {
+        if (characteristic.properties & CBCharacteristicPropertyNotify) {
+            [peripheral setNotifyValue:YES forCharacteristic:characteristic];
+        }
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DiscoverCharacteristicNotification" object:nil];
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error{
+    
+    if (error) {
+        DLog(@"error:%@",error.localizedDescription);
+        return ;
+    }
+
+    if (!(characteristic.properties & CBCharacteristicPropertyNotify)) {
+        [peripheral readValueForCharacteristic:characteristic];
+    }
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error{
+    
+    if (error) {
+        DLog(@"error:%@",error.localizedDescription);
+//        return ;
+    }
+    
+    [peripheral readValueForCharacteristic:characteristic];
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error{
+    
+    if (error) {
+        DLog(@"error:%@",error.localizedDescription);
+        return ;
+    }
+    
+    DLog(@"characteristic value = %@",characteristic.value);
+}
+
 
 @end
