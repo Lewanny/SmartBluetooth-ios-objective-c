@@ -8,10 +8,14 @@
 
 #import "PeripheralDetaiController.h"
 
+typedef  void (^SendDataBlock)(NSData *data);
+
 NSString *const kCharacteristicCell = @"kCharacteristicCell";
 NSString *const kServiceCell = @"kServiceCell";
 
-@interface PeripheralDetaiController ()
+@interface PeripheralDetaiController ()<UIAlertViewDelegate>{
+    SendDataBlock sendDataBlock;
+}
 
 @end
 
@@ -43,6 +47,7 @@ NSString *const kServiceCell = @"kServiceCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    DLog(@"_peripheral.services.count = %d",_peripheral.services.count);
     return  [_peripheral.services count];
 }
 
@@ -79,12 +84,47 @@ NSString *const kServiceCell = @"kServiceCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     CBService *service = [_peripheral.services objectAtIndex:indexPath.section];
     CBCharacteristic *charactristic = [service.characteristics objectAtIndex:indexPath.row];
+  
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Send data to device" message:[NSString stringWithFormat:@"Charactristic UUID:%@",[charactristic.UUID UUIDString]] delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:nil, nil];
     
-//    Byte common[4] = {6,6,6,6};
-    uint8_t common[4] = {6,6,6,6};
-    NSData *data = [NSData dataWithBytes:common length:4];
-    [self.peripheral writeValue:data forCharacteristic:charactristic type:CBCharacteristicWriteWithResponse];
+    if (charactristic.properties & CBCharacteristicPropertyWrite) {
+        alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [alertView addButtonWithTitle:@"send"];
+    }
+    else{
+        alertView.title = @"Writing is not permitted";
+    }
     
+    [alertView show];
+    
+    __weak typeof(self) weakSelf = self;
+    sendDataBlock = ^(NSData *data){
+         [weakSelf.peripheral writeValue:data forCharacteristic:charactristic type:CBCharacteristicWriteWithResponse];
+    };
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50.f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.0001f;
+}
+
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1) {
+        UITextField *textField = [alertView textFieldAtIndex:0];
+        DLog(@"alert text = %@",textField.text);
+        
+        NSData *data = [textField.text dataUsingEncoding:NSUTF8StringEncoding];
+        if (sendDataBlock) {
+            sendDataBlock(data);
+        }
+    }
+}
 @end

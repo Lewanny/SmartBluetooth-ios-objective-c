@@ -280,7 +280,14 @@
         return ;
     }
     
-    DLog(@"characteristic value = %@",characteristic.value);
+//    DLog(@"characteristic value = %@",characteristic.value);
+    
+    uint8_t *data = (uint8_t *)[characteristic.value bytes];
+    NSMutableString *temStr = [[NSMutableString alloc] init];
+    for (int i = 0; i < characteristic.value.length; i++) {
+        [temStr appendFormat:@"%02x ",data[i]];
+    }
+    DLog(@"update value:%@",temStr);
 }
 
 
