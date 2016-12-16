@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,31 +20,60 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mk7-z3-8KB">
-                    <frame key="frameInset" minX="58" minY="87" width="90" height="35"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mk7-z3-8KB">
+                    <rect key="frame" x="30" y="84" width="94" height="35"/>
                     <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="9JQ-UZ-Rs6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="Scan"/>
                     <connections>
                         <action selector="scanDeviceMethod:" destination="-1" eventType="touchUpInside" id="cdM-q2-3Jk"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHi-pj-Vj2">
-                    <frame key="frameInset" minX="226" minY="85" width="90" height="37"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K76-co-g6s">
+                    <rect key="frame" x="0.0" y="130" width="375" height="537"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAk-Ts-YwR">
+                    <rect key="frame" x="257.5" y="83" width="92.5" height="34"/>
                     <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="disconnect"/>
+                    <connections>
+                        <action selector="disconnectDeviceMethod:" destination="-1" eventType="touchUpInside" id="BXT-57-PHt"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHi-pj-Vj2">
+                    <rect key="frame" x="144.5" y="83" width="93" height="34"/>
+                    <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="Stop scan"/>
                     <connections>
                         <action selector="stopScanDeviceMethod:" destination="-1" eventType="touchUpInside" id="BVu-cG-TrN"/>
                     </connections>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K76-co-g6s">
-                    <frame key="frameInset" minY="148" width="375" height="519"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="CAk-Ts-YwR" secondAttribute="trailing" constant="25" id="1gl-Bh-B9S"/>
+                <constraint firstItem="K76-co-g6s" firstAttribute="top" secondItem="Mk7-z3-8KB" secondAttribute="bottom" constant="10" id="378-VT-J0M"/>
+                <constraint firstItem="Mk7-z3-8KB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="DPa-VZ-Q0n"/>
+                <constraint firstItem="CAk-Ts-YwR" firstAttribute="top" secondItem="Mk7-z3-8KB" secondAttribute="top" constant="-1" id="Fjb-it-E2F"/>
+                <constraint firstItem="hHi-pj-Vj2" firstAttribute="top" secondItem="Mk7-z3-8KB" secondAttribute="top" constant="-1" id="KDy-DC-Ypp"/>
+                <constraint firstItem="K76-co-g6s" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QAO-Pg-FHR"/>
+                <constraint firstAttribute="bottom" secondItem="K76-co-g6s" secondAttribute="bottom" id="RQM-Kn-dV5"/>
+                <constraint firstItem="CAk-Ts-YwR" firstAttribute="leading" secondItem="hHi-pj-Vj2" secondAttribute="trailing" constant="20" id="Sfy-nf-M8I"/>
+                <constraint firstAttribute="trailing" secondItem="K76-co-g6s" secondAttribute="trailing" id="SsU-ML-F2t"/>
+                <constraint firstItem="hHi-pj-Vj2" firstAttribute="bottom" secondItem="Mk7-z3-8KB" secondAttribute="bottom" constant="-2" id="Y8o-gJ-QBJ"/>
+                <constraint firstItem="Mk7-z3-8KB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="iYY-fy-zNS"/>
+                <constraint firstItem="CAk-Ts-YwR" firstAttribute="width" secondItem="Mk7-z3-8KB" secondAttribute="width" constant="-1.5" id="lZ5-3X-Ukc"/>
+                <constraint firstItem="hHi-pj-Vj2" firstAttribute="leading" secondItem="Mk7-z3-8KB" secondAttribute="trailing" constant="20" id="rV6-HF-ftM"/>
+                <constraint firstItem="hHi-pj-Vj2" firstAttribute="width" secondItem="Mk7-z3-8KB" secondAttribute="width" constant="-1.5" id="tPw-a5-bjc"/>
+                <constraint firstItem="CAk-Ts-YwR" firstAttribute="bottom" secondItem="Mk7-z3-8KB" secondAttribute="bottom" constant="-2" id="yL1-aH-9u1"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <point key="canvasLocation" x="32.5" y="102.5"/>
         </view>
     </objects>

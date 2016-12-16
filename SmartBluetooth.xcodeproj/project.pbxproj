@@ -17,6 +17,7 @@
 		45130A511DE585780040C7C1 /* SmartBluetoothTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A501DE585780040C7C1 /* SmartBluetoothTests.m */; };
 		45130A5C1DE585780040C7C1 /* SmartBluetoothUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A5B1DE585780040C7C1 /* SmartBluetoothUITests.m */; };
 		45130A6B1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A6A1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m */; };
+		4927A2211E03BD6E00DEDF6A /* PeripheralDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4927A2201E03BD6E00DEDF6A /* PeripheralDetailController.m */; };
 		CAB107E91DEBD4CE0045708E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB107E71DEBD4CE0045708E /* MainViewController.m */; };
 		CAB107EA1DEBD4CE0045708E /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB107E81DEBD4CE0045708E /* MainViewController.xib */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,9 @@
 		45130A5D1DE585780040C7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45130A691DE585AB0040C7C1 /* SCUBluetoothDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUBluetoothDeviceManager.h; sourceTree = "<group>"; };
 		45130A6A1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUBluetoothDeviceManager.m; sourceTree = "<group>"; };
+		4927A21B1E00EE9500DEDF6A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		4927A21F1E03BD6E00DEDF6A /* PeripheralDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralDetailController.h; sourceTree = "<group>"; };
+		4927A2201E03BD6E00DEDF6A /* PeripheralDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralDetailController.m; sourceTree = "<group>"; };
 		A04391A65EA2D3F7C8DFF2E8 /* Pods-SmartBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartBluetooth.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartBluetooth/Pods-SmartBluetooth.release.xcconfig"; sourceTree = "<group>"; };
 		BEDD3A689E4B776A2367A17F /* Pods-SmartBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartBluetooth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartBluetooth/Pods-SmartBluetooth.debug.xcconfig"; sourceTree = "<group>"; };
 		CAB107E61DEBD4CE0045708E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				CAB107E61DEBD4CE0045708E /* MainViewController.h */,
 				CAB107E71DEBD4CE0045708E /* MainViewController.m */,
 				CAB107E81DEBD4CE0045708E /* MainViewController.xib */,
+				4927A21F1E03BD6E00DEDF6A /* PeripheralDetailController.h */,
+				4927A2201E03BD6E00DEDF6A /* PeripheralDetailController.m */,
 				45130A421DE585780040C7C1 /* Assets.xcassets */,
 				45130A441DE585780040C7C1 /* LaunchScreen.storyboard */,
 				45130A3C1DE585780040C7C1 /* Main.storyboard */,
@@ -136,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				45130A341DE585780040C7C1 /* main.m */,
+				4927A21B1E00EE9500DEDF6A /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -361,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4927A2211E03BD6E00DEDF6A /* PeripheralDetailController.m in Sources */,
 				45130A411DE585780040C7C1 /* SmartBluetooth.xcdatamodeld in Sources */,
 				45130A6B1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m in Sources */,
 				45130A381DE585780040C7C1 /* AppDelegate.m in Sources */,
@@ -516,6 +524,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AXTESR7SA4;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SmartBluetooth/PrefixHeader.pch;
 				INFOPLIST_FILE = SmartBluetooth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -530,6 +540,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AXTESR7SA4;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SmartBluetooth/PrefixHeader.pch;
 				INFOPLIST_FILE = SmartBluetooth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
