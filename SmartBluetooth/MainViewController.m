@@ -16,7 +16,7 @@
 
 #import "MainViewController.h"
 #import "SCUBluetoothDeviceManager.h"
-#import "PeripheralDetaiController.h"
+#import "PeripheralDetailController.h"
 
 #define kCellDevice @"cellDeviceIdentity"
 @interface MainViewController () <SCUBluetoothDeviceManagerDelegate, UITableViewDelegate, UITableViewDataSource>{
@@ -86,7 +86,7 @@
 - (void)bluetoothDeviceBluetoothConnectionStatusDidChangeWithPeripheral:(CBPeripheral *)peripheral bluetoothType:(SCUBluetoothDeviceManagerBluetoothType)bluetoothType bluetoothDeviceProfile:(SCUBluetoothDeviceManagerBluetoothDeviceProfile)bluetoothDeviceProfile bluetoothConnectionStatus:(SCUBluetoothDeviceManagerBluetoothConnectionStatus)bluetoothConnectionStatus{
     
     if (SCUBluetoothDeviceManagerBluetoothConnectionStatusConnected == bluetoothConnectionStatus) {
-        PeripheralDetaiController *vc = [[PeripheralDetaiController alloc] init];
+        PeripheralDetailController *vc = [[PeripheralDetailController alloc] init];
         vc.peripheral = peripheral;
         [self.navigationController pushViewController:vc animated:YES];
     }
