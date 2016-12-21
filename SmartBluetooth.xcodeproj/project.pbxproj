@@ -17,6 +17,7 @@
 		45130A511DE585780040C7C1 /* SmartBluetoothTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A501DE585780040C7C1 /* SmartBluetoothTests.m */; };
 		45130A5C1DE585780040C7C1 /* SmartBluetoothUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A5B1DE585780040C7C1 /* SmartBluetoothUITests.m */; };
 		45130A6B1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A6A1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m */; };
+		4926F35C1E0A691E0031A46E /* SCUDataConversionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4926F35B1E0A691E0031A46E /* SCUDataConversionTool.m */; };
 		4927A2211E03BD6E00DEDF6A /* PeripheralDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4927A2201E03BD6E00DEDF6A /* PeripheralDetailController.m */; };
 		CAB107E91DEBD4CE0045708E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB107E71DEBD4CE0045708E /* MainViewController.m */; };
 		CAB107EA1DEBD4CE0045708E /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB107E81DEBD4CE0045708E /* MainViewController.xib */; };
@@ -57,6 +58,8 @@
 		45130A5D1DE585780040C7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45130A691DE585AB0040C7C1 /* SCUBluetoothDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUBluetoothDeviceManager.h; sourceTree = "<group>"; };
 		45130A6A1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUBluetoothDeviceManager.m; sourceTree = "<group>"; };
+		4926F35A1E0A691E0031A46E /* SCUDataConversionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUDataConversionTool.h; sourceTree = "<group>"; };
+		4926F35B1E0A691E0031A46E /* SCUDataConversionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUDataConversionTool.m; sourceTree = "<group>"; };
 		4927A21B1E00EE9500DEDF6A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		4927A21F1E03BD6E00DEDF6A /* PeripheralDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralDetailController.h; sourceTree = "<group>"; };
 		4927A2201E03BD6E00DEDF6A /* PeripheralDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralDetailController.m; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 				45130A331DE585780040C7C1 /* Supporting Files */,
 				45130A691DE585AB0040C7C1 /* SCUBluetoothDeviceManager.h */,
 				45130A6A1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m */,
+				4926F35A1E0A691E0031A46E /* SCUDataConversionTool.h */,
+				4926F35B1E0A691E0031A46E /* SCUDataConversionTool.m */,
 			);
 			path = SmartBluetooth;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4927A2211E03BD6E00DEDF6A /* PeripheralDetailController.m in Sources */,
+				4926F35C1E0A691E0031A46E /* SCUDataConversionTool.m in Sources */,
 				45130A411DE585780040C7C1 /* SmartBluetooth.xcdatamodeld in Sources */,
 				45130A6B1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m in Sources */,
 				45130A381DE585780040C7C1 /* AppDelegate.m in Sources */,
