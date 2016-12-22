@@ -15,6 +15,7 @@
  */
 
 #import "SCUBluetoothDeviceManager.h"
+#import "SCUDataConversionTool.h"
 
 @interface SCUBluetoothDeviceManager () <CBCentralManagerDelegate,CBPeripheralDelegate>
 {
