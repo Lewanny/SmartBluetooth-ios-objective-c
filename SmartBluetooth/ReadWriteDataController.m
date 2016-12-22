@@ -14,6 +14,9 @@ NSString *const kWriteCell = @"kWriteCellIdentify";
 
 @interface ReadWriteDataController () <UIAlertViewDelegate, SCUBluetoothDeviceManagerDelegate>
 
+@property(nonatomic, strong)NSMutableArray *sendDataArr;
+@property(nonatomic, strong)NSMutableArray *receivedDataArr;
+
 @end
 
 @implementation ReadWriteDataController
@@ -26,6 +29,9 @@ NSString *const kWriteCell = @"kWriteCellIdentify";
     
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:kWriteHeaderCell];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kWriteCell];
+    
+    self.sendDataArr = [NSMutableArray array];
+    self.receivedDataArr = [NSMutableArray array];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,13 +79,15 @@ NSString *const kWriteCell = @"kWriteCellIdentify";
             return 1;
             break;
         case 1:
+            return self.sendDataArr.count;
             break;
         case 2:
+            return self.receivedDataArr.count;
             break;
         default:
             break;
     }
-    return 3;
+    return 0;
 }
 
 
@@ -92,10 +100,10 @@ NSString *const kWriteCell = @"kWriteCellIdentify";
             cell.textLabel.textColor = [UIColor blueColor];
             break;
         case 1:
-            cell.textLabel.text = [NSString stringWithFormat:@"Charactristic UUID:%@",@"a"];
+            cell.textLabel.text = [self.sendDataArr objectAtIndex:indexPath.row];;
             break;
         case 2:
-            cell.textLabel.text = [NSString stringWithFormat:@"Charactristic UUID:%@",@"a"];
+            cell.textLabel.text = [self.receivedDataArr objectAtIndex:indexPath.row];
             break;
         default:
             break;
@@ -133,15 +141,17 @@ NSString *const kWriteCell = @"kWriteCellIdentify";
     if (buttonIndex == 1) {
         UITextField *textField = [alertView textFieldAtIndex:0];
         DLog(@"alert text = %@",textField.text);
-        
-        NSData *data = [textField.text dataUsingEncoding:NSUTF8StringEncoding];
-        [self sendData:data];
+        [self sendDataWithDataStr:textField.text];
     }
 }
 
-- (void)sendData:(NSData *)data {
-    
+
+- (void)sendDataWithDataStr:(NSString *)dataStr {
+    NSData *data = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
     [self.peripheral writeValue:data forCharacteristic:self.charactristic type:CBCharacteristicWriteWithResponse];
+    
+    [self.sendDataArr addObject:dataStr];
+    [self.tableView reloadData];
 }
 
 
@@ -153,6 +163,10 @@ NSString *const kWriteCell = @"kWriteCellIdentify";
         [temStr appendFormat:@"%02x ",dataByte[i]];
     }
     DLog(@"update value:%@",temStr);
+    NSString *receivedStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+    [self.receivedDataArr addObject:receivedStr];
+    [self.tableView reloadData];
 }
 
 

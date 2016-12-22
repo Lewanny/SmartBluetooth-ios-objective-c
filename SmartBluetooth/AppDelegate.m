@@ -102,7 +102,7 @@
  * cocoalumberjack init
  */
 -(void)initWithCocoaLumberjackLog{
-    [DDLog addLogger:[DDASLLogger sharedInstance]];
+//    [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
     
