@@ -21,6 +21,7 @@
 		4927A2211E03BD6E00DEDF6A /* PeripheralDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4927A2201E03BD6E00DEDF6A /* PeripheralDetailController.m */; };
 		CAB107E91DEBD4CE0045708E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB107E71DEBD4CE0045708E /* MainViewController.m */; };
 		CAB107EA1DEBD4CE0045708E /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB107E81DEBD4CE0045708E /* MainViewController.xib */; };
+		CAC609B81E0BCB5D0009876A /* ReadWriteDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC609B71E0BCB5D0009876A /* ReadWriteDataController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		CAB107E61DEBD4CE0045708E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		CAB107E71DEBD4CE0045708E /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		CAB107E81DEBD4CE0045708E /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		CAC609B61E0BCB5D0009876A /* ReadWriteDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadWriteDataController.h; sourceTree = "<group>"; };
+		CAC609B71E0BCB5D0009876A /* ReadWriteDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadWriteDataController.m; sourceTree = "<group>"; };
 		FF1C40506A2E035D531A761A /* libPods-SmartBluetooth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartBluetooth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,6 +132,8 @@
 				CAB107E81DEBD4CE0045708E /* MainViewController.xib */,
 				4927A21F1E03BD6E00DEDF6A /* PeripheralDetailController.h */,
 				4927A2201E03BD6E00DEDF6A /* PeripheralDetailController.m */,
+				CAC609B61E0BCB5D0009876A /* ReadWriteDataController.h */,
+				CAC609B71E0BCB5D0009876A /* ReadWriteDataController.m */,
 				45130A421DE585780040C7C1 /* Assets.xcassets */,
 				45130A441DE585780040C7C1 /* LaunchScreen.storyboard */,
 				45130A3C1DE585780040C7C1 /* Main.storyboard */,
@@ -374,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4927A2211E03BD6E00DEDF6A /* PeripheralDetailController.m in Sources */,
+				CAC609B81E0BCB5D0009876A /* ReadWriteDataController.m in Sources */,
 				4926F35C1E0A691E0031A46E /* SCUDataConversionTool.m in Sources */,
 				45130A411DE585780040C7C1 /* SmartBluetooth.xcdatamodeld in Sources */,
 				45130A6B1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m in Sources */,

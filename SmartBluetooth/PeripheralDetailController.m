@@ -15,6 +15,7 @@
  */
 
 #import "PeripheralDetailController.h"
+#import "ReadWriteDataController.h"
 
 typedef  void (^SendDataBlock)(NSData *data);
 
@@ -55,7 +56,7 @@ NSString *const kServiceCell = @"kServiceCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    DLog(@"_peripheral.services.count = %d",_peripheral.services.count);
+    DLog(@"_peripheral.services.count = %lu",_peripheral.services.count);
     return  [_peripheral.services count];
 }
 
@@ -93,6 +94,9 @@ NSString *const kServiceCell = @"kServiceCell";
     CBService *service = [_peripheral.services objectAtIndex:indexPath.section];
     CBCharacteristic *charactristic = [service.characteristics objectAtIndex:indexPath.row];
   
+    ReadWriteDataController *readWriteDataVC = [[ReadWriteDataController alloc] init];
+    [self.navigationController pushViewController:readWriteDataVC animated:YES];
+    
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Send data to device" message:[NSString stringWithFormat:@"Charactristic UUID:%@",[charactristic.UUID UUIDString]] delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:nil, nil];
     
     if (charactristic.properties & CBCharacteristicPropertyWrite) {
