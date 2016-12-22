@@ -16,9 +16,12 @@
 
 #import "MainViewController.h"
 #import "SCUBluetoothDeviceManager.h"
+#import "PeripheralDetailController.h"
 
 #define kCellDevice @"cellDeviceIdentity"
-@interface MainViewController () <SCUBluetoothDeviceManagerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface MainViewController () <SCUBluetoothDeviceManagerDelegate, UITableViewDelegate, UITableViewDataSource>{
+    CBPeripheral *connectPeripheral;
+}
 
 @property(nonatomic, strong) SCUBluetoothDeviceManager *bluetoothDeviceManager;
 @property (weak, nonatomic) IBOutlet UITableView *deviceTabelView;
@@ -42,9 +45,11 @@
     [self bluetoothMethod];
     
     BOOL macAdressAvalid = [self.bluetoothDeviceManager isMACAddressValid:@"C9:A2:D3:F0:B9:E4"];
-    NSLog(@"Is macAdressAvailable:%d", macAdressAvalid);
+    DLog(@"Is macAdressAvailable:%d", macAdressAvalid);
     
     [self.bluetoothDeviceManager setSCUBluetoothDeviceManagerDelegate:self];
+    
+    
 }
 
 #pragma mark - TableViewDelegate
@@ -65,24 +70,43 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     CBPeripheral *peripheral = [self.deviceListArr objectAtIndex:indexPath.row];
-    [self.bluetoothDeviceManager connectWithPeripheral:peripheral profile:SCUBluetoothDeviceManagerBluetoothDeviceProfileA2DP];
+    [self.bluetoothDeviceManager connectWithPeripheral:peripheral bluetoothType:SCUBluetoothDeviceManagerBluetoothTypeClassic bluetoothDeviceProfile:SCUBluetoothDeviceManagerBluetoothDeviceProfileUnknown];
+
 }
 
 
 #pragma mark - SCUBluetoothDeviceManagerDelegate Method
-- (void)bluetoothDeviceDidDiscoverBluetoothDevice:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData {
+- (void)bluetoothDeviceBluetoothScanningBLEDidReceiveWithPeripheral:(CBPeripheral *)peripheral RSSI:(NSNumber *)rssi advertisementData:(NSDictionary *)advertisementData{
     
     [self.deviceListArr addObject:peripheral];
     [self.deviceTabelView reloadData];
 }
 
+// connect
+- (void)bluetoothDeviceBluetoothConnectionStatusDidChangeWithPeripheral:(CBPeripheral *)peripheral bluetoothType:(SCUBluetoothDeviceManagerBluetoothType)bluetoothType bluetoothDeviceProfile:(SCUBluetoothDeviceManagerBluetoothDeviceProfile)bluetoothDeviceProfile bluetoothConnectionStatus:(SCUBluetoothDeviceManagerBluetoothConnectionStatus)bluetoothConnectionStatus{
+    
+    if (SCUBluetoothDeviceManagerBluetoothConnectionStatusConnected == bluetoothConnectionStatus) {
+        PeripheralDetailController *vc = [[PeripheralDetailController alloc] init];
+        vc.peripheral = peripheral;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    connectPeripheral = peripheral;
+}
 
 - (IBAction)scanDeviceMethod:(id)sender {
+
     [self.bluetoothDeviceManager startScanningWithType:SCUBluetoothDeviceManagerBluetoothTypeClassic];
 }
 
 - (IBAction)stopScanDeviceMethod:(id)sender {
     [self.bluetoothDeviceManager stopScanningWithType:SCUBluetoothDeviceManagerBluetoothTypeClassic];
+}
+
+- (IBAction)disconnectDeviceMethod:(UIButton *)sender {
+    if (!connectPeripheral) {
+        return ;
+    }
+    [self.bluetoothDeviceManager disconnectWithPeripheral:connectPeripheral bluetoothType:SCUBluetoothDeviceManagerBluetoothTypeClassic bluetoothDeviceProfile:SCUBluetoothDeviceManagerBluetoothDeviceProfileUnknown];
 }
 
 
@@ -93,10 +117,10 @@
     
     dispatch_queue_t queue= dispatch_get_main_queue();
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), queue, ^{
-        NSLog(@"Is support Bluetooth: %d", [[SCUBluetoothDeviceManager sharedInstance] isSupported]);
-        NSLog(@"Is Bluetooth open: %d", [[SCUBluetoothDeviceManager sharedInstance] isEnabled]);
+        DLog(@"Is support Bluetooth: %d", [[SCUBluetoothDeviceManager sharedInstance] isSupported]);
+        DLog(@"Is Bluetooth open: %d", [[SCUBluetoothDeviceManager sharedInstance] isEnabled]);
         
-        
+        [self.bluetoothDeviceManager startScanningWithType:SCUBluetoothDeviceManagerBluetoothTypeClassic];
     });
 }
 
@@ -106,14 +130,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

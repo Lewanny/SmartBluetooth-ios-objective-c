@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32EE8A7639B52E96CDA169EA /* libPods-SmartBluetooth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1C40506A2E035D531A761A /* libPods-SmartBluetooth.a */; };
 		45130A351DE585780040C7C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A341DE585780040C7C1 /* main.m */; };
 		45130A381DE585780040C7C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A371DE585780040C7C1 /* AppDelegate.m */; };
 		45130A3E1DE585780040C7C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45130A3C1DE585780040C7C1 /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 		45130A511DE585780040C7C1 /* SmartBluetoothTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A501DE585780040C7C1 /* SmartBluetoothTests.m */; };
 		45130A5C1DE585780040C7C1 /* SmartBluetoothUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A5B1DE585780040C7C1 /* SmartBluetoothUITests.m */; };
 		45130A6B1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A6A1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m */; };
+		4926F35C1E0A691E0031A46E /* SCUDataConversionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4926F35B1E0A691E0031A46E /* SCUDataConversionTool.m */; };
+		4927A2211E03BD6E00DEDF6A /* PeripheralDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4927A2201E03BD6E00DEDF6A /* PeripheralDetailController.m */; };
 		CAB107E91DEBD4CE0045708E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB107E71DEBD4CE0045708E /* MainViewController.m */; };
 		CAB107EA1DEBD4CE0045708E /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB107E81DEBD4CE0045708E /* MainViewController.xib */; };
 /* End PBXBuildFile section */
@@ -55,9 +58,17 @@
 		45130A5D1DE585780040C7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45130A691DE585AB0040C7C1 /* SCUBluetoothDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUBluetoothDeviceManager.h; sourceTree = "<group>"; };
 		45130A6A1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUBluetoothDeviceManager.m; sourceTree = "<group>"; };
+		4926F35A1E0A691E0031A46E /* SCUDataConversionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUDataConversionTool.h; sourceTree = "<group>"; };
+		4926F35B1E0A691E0031A46E /* SCUDataConversionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUDataConversionTool.m; sourceTree = "<group>"; };
+		4927A21B1E00EE9500DEDF6A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		4927A21F1E03BD6E00DEDF6A /* PeripheralDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralDetailController.h; sourceTree = "<group>"; };
+		4927A2201E03BD6E00DEDF6A /* PeripheralDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralDetailController.m; sourceTree = "<group>"; };
+		A04391A65EA2D3F7C8DFF2E8 /* Pods-SmartBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartBluetooth.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartBluetooth/Pods-SmartBluetooth.release.xcconfig"; sourceTree = "<group>"; };
+		BEDD3A689E4B776A2367A17F /* Pods-SmartBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartBluetooth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartBluetooth/Pods-SmartBluetooth.debug.xcconfig"; sourceTree = "<group>"; };
 		CAB107E61DEBD4CE0045708E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		CAB107E71DEBD4CE0045708E /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		CAB107E81DEBD4CE0045708E /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		FF1C40506A2E035D531A761A /* libPods-SmartBluetooth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartBluetooth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32EE8A7639B52E96CDA169EA /* libPods-SmartBluetooth.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +104,8 @@
 				45130A4F1DE585780040C7C1 /* SmartBluetoothTests */,
 				45130A5A1DE585780040C7C1 /* SmartBluetoothUITests */,
 				45130A311DE585780040C7C1 /* Products */,
+				F93083E077F874BB6D75CF64 /* Pods */,
+				D9BA562CCE26F4C01695D374 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +127,8 @@
 				CAB107E61DEBD4CE0045708E /* MainViewController.h */,
 				CAB107E71DEBD4CE0045708E /* MainViewController.m */,
 				CAB107E81DEBD4CE0045708E /* MainViewController.xib */,
+				4927A21F1E03BD6E00DEDF6A /* PeripheralDetailController.h */,
+				4927A2201E03BD6E00DEDF6A /* PeripheralDetailController.m */,
 				45130A421DE585780040C7C1 /* Assets.xcassets */,
 				45130A441DE585780040C7C1 /* LaunchScreen.storyboard */,
 				45130A3C1DE585780040C7C1 /* Main.storyboard */,
@@ -121,6 +137,8 @@
 				45130A331DE585780040C7C1 /* Supporting Files */,
 				45130A691DE585AB0040C7C1 /* SCUBluetoothDeviceManager.h */,
 				45130A6A1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m */,
+				4926F35A1E0A691E0031A46E /* SCUDataConversionTool.h */,
+				4926F35B1E0A691E0031A46E /* SCUDataConversionTool.m */,
 			);
 			path = SmartBluetooth;
 			sourceTree = "<group>";
@@ -129,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				45130A341DE585780040C7C1 /* main.m */,
+				4927A21B1E00EE9500DEDF6A /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -151,6 +170,23 @@
 			path = SmartBluetoothUITests;
 			sourceTree = "<group>";
 		};
+		D9BA562CCE26F4C01695D374 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF1C40506A2E035D531A761A /* libPods-SmartBluetooth.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F93083E077F874BB6D75CF64 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BEDD3A689E4B776A2367A17F /* Pods-SmartBluetooth.debug.xcconfig */,
+				A04391A65EA2D3F7C8DFF2E8 /* Pods-SmartBluetooth.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,9 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45130A601DE585780040C7C1 /* Build configuration list for PBXNativeTarget "SmartBluetooth" */;
 			buildPhases = (
+				5634EC198EF2F4619574EE93 /* [CP] Check Pods Manifest.lock */,
 				45130A2C1DE585780040C7C1 /* Sources */,
 				45130A2D1DE585780040C7C1 /* Frameworks */,
 				45130A2E1DE585780040C7C1 /* Resources */,
+				C3BB65A579CC63A95A82B4A3 /* [CP] Embed Pods Frameworks */,
+				897111F19589809765DB8C96 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -281,11 +320,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5634EC198EF2F4619574EE93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		897111F19589809765DB8C96 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartBluetooth/Pods-SmartBluetooth-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3BB65A579CC63A95A82B4A3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartBluetooth/Pods-SmartBluetooth-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		45130A2C1DE585780040C7C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4927A2211E03BD6E00DEDF6A /* PeripheralDetailController.m in Sources */,
+				4926F35C1E0A691E0031A46E /* SCUDataConversionTool.m in Sources */,
 				45130A411DE585780040C7C1 /* SmartBluetooth.xcdatamodeld in Sources */,
 				45130A6B1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m in Sources */,
 				45130A381DE585780040C7C1 /* AppDelegate.m in Sources */,
@@ -437,9 +526,12 @@
 		};
 		45130A611DE585780040C7C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEDD3A689E4B776A2367A17F /* Pods-SmartBluetooth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AXTESR7SA4;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SmartBluetooth/PrefixHeader.pch;
 				INFOPLIST_FILE = SmartBluetooth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -450,9 +542,12 @@
 		};
 		45130A621DE585780040C7C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A04391A65EA2D3F7C8DFF2E8 /* Pods-SmartBluetooth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AXTESR7SA4;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SmartBluetooth/PrefixHeader.pch;
 				INFOPLIST_FILE = SmartBluetooth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
