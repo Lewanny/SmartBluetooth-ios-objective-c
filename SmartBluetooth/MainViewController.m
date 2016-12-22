@@ -48,8 +48,6 @@
     DLog(@"Is macAdressAvailable:%d", macAdressAvalid);
     
     [self.bluetoothDeviceManager setSCUBluetoothDeviceManagerDelegate:self];
-    
-    
 }
 
 #pragma mark - TableViewDelegate

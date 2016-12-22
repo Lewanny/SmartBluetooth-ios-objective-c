@@ -280,15 +280,10 @@
         DLog(@"error:%@",error.localizedDescription);
         return ;
     }
-    
-//    DLog(@"characteristic value = %@",characteristic.value);
-    
-    uint8_t *data = (uint8_t *)[characteristic.value bytes];
-    NSMutableString *temStr = [[NSMutableString alloc] init];
-    for (int i = 0; i < characteristic.value.length; i++) {
-        [temStr appendFormat:@"%02x ",data[i]];
+        
+    if ([self.delegate respondsToSelector:@selector(bluetoothDeviceDidReceivedData:)]) {
+        [self.delegate bluetoothDeviceDidReceivedData:characteristic.value];
     }
-    DLog(@"update value:%@",temStr);
 }
 
 

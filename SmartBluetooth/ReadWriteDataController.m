@@ -12,7 +12,7 @@ NSString *const kWriteHeaderCell = @"WriteHeaderCellIdentify";
 NSString *const kWriteCell = @"kWriteCellIdentify";
 
 
-@interface ReadWriteDataController ()
+@interface ReadWriteDataController () <UIAlertViewDelegate, SCUBluetoothDeviceManagerDelegate>
 
 @end
 
@@ -20,6 +20,9 @@ NSString *const kWriteCell = @"kWriteCellIdentify";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = [self.charactristic.UUID UUIDString];
+    [[SCUBluetoothDeviceManager sharedInstance] setSCUBluetoothDeviceManagerDelegate:self];
     
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:kWriteHeaderCell];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kWriteCell];
@@ -101,18 +104,56 @@ NSString *const kWriteCell = @"kWriteCellIdentify";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case 0:
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Send data to device" message:[NSString stringWithFormat:@"Charactristic UUID:%@",[self.charactristic.UUID UUIDString]] delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:nil, nil];
+            alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+            [alertView addButtonWithTitle:@"send"];
+            [alertView show];
+        }
+            break;
+        case 1:
+//            cell.textLabel.text = [NSString stringWithFormat:@"Charactristic UUID:%@",@"a"];
+            break;
+        case 2:
+//            cell.textLabel.text = [NSString stringWithFormat:@"Charactristic UUID:%@",@"a"];
+            break;
+        default:
+            break;
+    }
     
 }
 
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1) {
+        UITextField *textField = [alertView textFieldAtIndex:0];
+        DLog(@"alert text = %@",textField.text);
+        
+        NSData *data = [textField.text dataUsingEncoding:NSUTF8StringEncoding];
+        [self sendData:data];
+    }
 }
-*/
+
+- (void)sendData:(NSData *)data {
+    
+    [self.peripheral writeValue:data forCharacteristic:self.charactristic type:CBCharacteristicWriteWithResponse];
+}
+
+
+#pragma mark - BluetoothDelegate
+- (void)bluetoothDeviceDidReceivedData:(NSData *)data {
+    uint8_t *dataByte = (uint8_t *)[data bytes];
+    NSMutableString *temStr = [[NSMutableString alloc] init];
+    for (int i = 0; i < data.length; i++) {
+        [temStr appendFormat:@"%02x ",dataByte[i]];
+    }
+    DLog(@"update value:%@",temStr);
+}
+
 
 @end

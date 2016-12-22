@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCUBluetoothDeviceManager.h"
 
 @interface ReadWriteDataController : UITableViewController
 
+@property(nonatomic, strong)CBCharacteristic *charactristic;
+@property (nonatomic, strong) CBPeripheral *peripheral;
 
 @end

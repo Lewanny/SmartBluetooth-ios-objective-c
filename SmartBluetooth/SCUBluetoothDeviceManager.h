@@ -219,6 +219,9 @@ typedef NS_ENUM(NSUInteger, SCUBluetoothDeviceManagerBluetoothConnectionStatus)
  */
 - (void)bluetoothDeviceBluetoothScanningBLEDidReceiveWithPeripheral:(CBPeripheral *)peripheral RSSI:(NSNumber *)rssi advertisementData:(NSDictionary *)advertisementData;
 
+// Received data callback
+- (void)bluetoothDeviceDidReceivedData:(NSData *)data;
+
 @end
 
 /*!
