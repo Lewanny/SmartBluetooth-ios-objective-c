@@ -41,6 +41,7 @@ NSString *const kServiceCell = @"kServiceCell";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(discoverCharacteristicNotification:) name:@"DiscoverCharacteristicNotification" object:nil];
 }
 
+
 -(instancetype)initWithStyle:(UITableViewStyle)style{
     if (self = [super initWithStyle:style]) {
         self = [super initWithStyle:UITableViewStyleGrouped];
