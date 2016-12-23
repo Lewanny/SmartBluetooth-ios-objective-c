@@ -92,7 +92,8 @@
 }
 
 - (IBAction)scanDeviceMethod:(id)sender {
-
+    [self.deviceListArr removeAllObjects];
+    [self.deviceTabelView reloadData];
     [self.bluetoothDeviceManager startScanningWithType:SCUBluetoothDeviceManagerBluetoothTypeClassic];
 }
 

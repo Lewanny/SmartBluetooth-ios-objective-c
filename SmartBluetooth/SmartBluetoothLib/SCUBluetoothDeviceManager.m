@@ -122,6 +122,7 @@
 
 - (void)startScanningWithType:(SCUBluetoothDeviceManagerBluetoothType)type
 {
+    [self.deviceListArray removeAllObjects];
     [self.centralManager scanForPeripheralsWithServices:nil options:self.centralManagerOptionDic];
     self.isScanning = YES;
 }
