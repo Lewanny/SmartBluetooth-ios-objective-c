@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-#import "MainViewController.h"
+#import "SCUMainViewController.h"
 #import "SCUBluetoothDeviceManager.h"
-#import "PeripheralDetailController.h"
+#import "SCUPeripheralDetailController.h"
 
 #define kCellDevice @"cellDeviceIdentity"
-@interface MainViewController () <SCUBluetoothDeviceManagerDelegate, UITableViewDelegate, UITableViewDataSource>{
+@interface SCUMainViewController () <SCUBluetoothDeviceManagerDelegate, UITableViewDelegate, UITableViewDataSource>{
     CBPeripheral *connectPeripheral;
 }
 
@@ -30,7 +30,7 @@
 
 @end
 
-@implementation MainViewController
+@implementation SCUMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -84,9 +84,9 @@
 - (void)bluetoothDeviceBluetoothConnectionStatusDidChangeWithPeripheral:(CBPeripheral *)peripheral bluetoothType:(SCUBluetoothDeviceManagerBluetoothType)bluetoothType bluetoothDeviceProfile:(SCUBluetoothDeviceManagerBluetoothDeviceProfile)bluetoothDeviceProfile bluetoothConnectionStatus:(SCUBluetoothDeviceManagerBluetoothConnectionStatus)bluetoothConnectionStatus{
     
     if (SCUBluetoothDeviceManagerBluetoothConnectionStatusConnected == bluetoothConnectionStatus) {
-        PeripheralDetailController *vc = [[PeripheralDetailController alloc] init];
-        vc.peripheral = peripheral;
-        [self.navigationController pushViewController:vc animated:YES];
+        SCUPeripheralDetailController *peripheralDetailVC = [[SCUPeripheralDetailController alloc] init];
+        peripheralDetailVC.peripheral = peripheral;
+        [self.navigationController pushViewController:peripheralDetailVC animated:YES];
     }
     connectPeripheral = peripheral;
 }

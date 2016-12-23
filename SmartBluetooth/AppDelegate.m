@@ -15,7 +15,7 @@
  */
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
+#import "SCUMainViewController.h"
 
 @interface AppDelegate ()
 
@@ -30,7 +30,7 @@
     // cocoalumberjack init
     [self initWithCocoaLumberjackLog];
     
-    MainViewController *mainVC = [[MainViewController alloc] init];
+    SCUMainViewController *mainVC = [[SCUMainViewController alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:mainVC];
     self.window.rootViewController = navi;
     return YES;

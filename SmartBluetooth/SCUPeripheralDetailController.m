@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-#import "PeripheralDetailController.h"
-#import "ReadWriteDataController.h"
+#import "SCUPeripheralDetailController.h"
+#import "SCUReadWriteDataController.h"
 
 typedef  void (^SendDataBlock)(NSData *data);
 
 NSString *const kCharacteristicCell = @"kCharacteristicCell";
 NSString *const kServiceCell = @"kServiceCell";
 
-@interface PeripheralDetailController () {
+@interface SCUPeripheralDetailController () {
     SendDataBlock sendDataBlock;
 }
 
 @end
 
-@implementation PeripheralDetailController
+@implementation SCUPeripheralDetailController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,7 +57,6 @@ NSString *const kServiceCell = @"kServiceCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    DLog(@"_peripheral.services.count = %lu",_peripheral.services.count);
     return  [_peripheral.services count];
 }
 
@@ -95,7 +94,7 @@ NSString *const kServiceCell = @"kServiceCell";
     CBService *service = [_peripheral.services objectAtIndex:indexPath.section];
     CBCharacteristic *charactristic = [service.characteristics objectAtIndex:indexPath.row];
   
-    ReadWriteDataController *readWriteDataVC = [[ReadWriteDataController alloc] init];
+    SCUReadWriteDataController *readWriteDataVC = [[SCUReadWriteDataController alloc] init];
     readWriteDataVC.charactristic = charactristic;
     readWriteDataVC.peripheral = self.peripheral;
     

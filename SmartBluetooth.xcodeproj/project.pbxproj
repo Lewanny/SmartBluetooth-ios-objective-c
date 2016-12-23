@@ -18,10 +18,10 @@
 		45130A5C1DE585780040C7C1 /* SmartBluetoothUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A5B1DE585780040C7C1 /* SmartBluetoothUITests.m */; };
 		45130A6B1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45130A6A1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m */; };
 		4926F35C1E0A691E0031A46E /* SCUDataConversionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4926F35B1E0A691E0031A46E /* SCUDataConversionTool.m */; };
-		4927A2211E03BD6E00DEDF6A /* PeripheralDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4927A2201E03BD6E00DEDF6A /* PeripheralDetailController.m */; };
-		CAB107E91DEBD4CE0045708E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB107E71DEBD4CE0045708E /* MainViewController.m */; };
-		CAB107EA1DEBD4CE0045708E /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB107E81DEBD4CE0045708E /* MainViewController.xib */; };
-		CAC609B81E0BCB5D0009876A /* ReadWriteDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC609B71E0BCB5D0009876A /* ReadWriteDataController.m */; };
+		4927A2211E03BD6E00DEDF6A /* SCUPeripheralDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4927A2201E03BD6E00DEDF6A /* SCUPeripheralDetailController.m */; };
+		CAB107E91DEBD4CE0045708E /* SCUMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB107E71DEBD4CE0045708E /* SCUMainViewController.m */; };
+		CAB107EA1DEBD4CE0045708E /* SCUMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB107E81DEBD4CE0045708E /* SCUMainViewController.xib */; };
+		CAC609B81E0BCB5D0009876A /* SCUReadWriteDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC609B71E0BCB5D0009876A /* SCUReadWriteDataController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,15 +62,15 @@
 		4926F35A1E0A691E0031A46E /* SCUDataConversionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUDataConversionTool.h; sourceTree = "<group>"; };
 		4926F35B1E0A691E0031A46E /* SCUDataConversionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUDataConversionTool.m; sourceTree = "<group>"; };
 		4927A21B1E00EE9500DEDF6A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		4927A21F1E03BD6E00DEDF6A /* PeripheralDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralDetailController.h; sourceTree = "<group>"; };
-		4927A2201E03BD6E00DEDF6A /* PeripheralDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralDetailController.m; sourceTree = "<group>"; };
+		4927A21F1E03BD6E00DEDF6A /* SCUPeripheralDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUPeripheralDetailController.h; sourceTree = "<group>"; };
+		4927A2201E03BD6E00DEDF6A /* SCUPeripheralDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUPeripheralDetailController.m; sourceTree = "<group>"; };
 		A04391A65EA2D3F7C8DFF2E8 /* Pods-SmartBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartBluetooth.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartBluetooth/Pods-SmartBluetooth.release.xcconfig"; sourceTree = "<group>"; };
 		BEDD3A689E4B776A2367A17F /* Pods-SmartBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartBluetooth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartBluetooth/Pods-SmartBluetooth.debug.xcconfig"; sourceTree = "<group>"; };
-		CAB107E61DEBD4CE0045708E /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		CAB107E71DEBD4CE0045708E /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		CAB107E81DEBD4CE0045708E /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		CAC609B61E0BCB5D0009876A /* ReadWriteDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadWriteDataController.h; sourceTree = "<group>"; };
-		CAC609B71E0BCB5D0009876A /* ReadWriteDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadWriteDataController.m; sourceTree = "<group>"; };
+		CAB107E61DEBD4CE0045708E /* SCUMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUMainViewController.h; sourceTree = "<group>"; };
+		CAB107E71DEBD4CE0045708E /* SCUMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUMainViewController.m; sourceTree = "<group>"; };
+		CAB107E81DEBD4CE0045708E /* SCUMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCUMainViewController.xib; sourceTree = "<group>"; };
+		CAC609B61E0BCB5D0009876A /* SCUReadWriteDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCUReadWriteDataController.h; sourceTree = "<group>"; };
+		CAC609B71E0BCB5D0009876A /* SCUReadWriteDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCUReadWriteDataController.m; sourceTree = "<group>"; };
 		FF1C40506A2E035D531A761A /* libPods-SmartBluetooth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmartBluetooth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,13 +127,13 @@
 			children = (
 				45130A361DE585780040C7C1 /* AppDelegate.h */,
 				45130A371DE585780040C7C1 /* AppDelegate.m */,
-				CAB107E61DEBD4CE0045708E /* MainViewController.h */,
-				CAB107E71DEBD4CE0045708E /* MainViewController.m */,
-				CAB107E81DEBD4CE0045708E /* MainViewController.xib */,
-				4927A21F1E03BD6E00DEDF6A /* PeripheralDetailController.h */,
-				4927A2201E03BD6E00DEDF6A /* PeripheralDetailController.m */,
-				CAC609B61E0BCB5D0009876A /* ReadWriteDataController.h */,
-				CAC609B71E0BCB5D0009876A /* ReadWriteDataController.m */,
+				CAB107E61DEBD4CE0045708E /* SCUMainViewController.h */,
+				CAB107E71DEBD4CE0045708E /* SCUMainViewController.m */,
+				CAB107E81DEBD4CE0045708E /* SCUMainViewController.xib */,
+				4927A21F1E03BD6E00DEDF6A /* SCUPeripheralDetailController.h */,
+				4927A2201E03BD6E00DEDF6A /* SCUPeripheralDetailController.m */,
+				CAC609B61E0BCB5D0009876A /* SCUReadWriteDataController.h */,
+				CAC609B71E0BCB5D0009876A /* SCUReadWriteDataController.m */,
 				45130A421DE585780040C7C1 /* Assets.xcassets */,
 				45130A441DE585780040C7C1 /* LaunchScreen.storyboard */,
 				45130A3C1DE585780040C7C1 /* Main.storyboard */,
@@ -305,7 +305,7 @@
 				45130A461DE585780040C7C1 /* LaunchScreen.storyboard in Resources */,
 				45130A431DE585780040C7C1 /* Assets.xcassets in Resources */,
 				45130A3E1DE585780040C7C1 /* Main.storyboard in Resources */,
-				CAB107EA1DEBD4CE0045708E /* MainViewController.xib in Resources */,
+				CAB107EA1DEBD4CE0045708E /* SCUMainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,13 +378,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4927A2211E03BD6E00DEDF6A /* PeripheralDetailController.m in Sources */,
-				CAC609B81E0BCB5D0009876A /* ReadWriteDataController.m in Sources */,
+				4927A2211E03BD6E00DEDF6A /* SCUPeripheralDetailController.m in Sources */,
+				CAC609B81E0BCB5D0009876A /* SCUReadWriteDataController.m in Sources */,
 				4926F35C1E0A691E0031A46E /* SCUDataConversionTool.m in Sources */,
 				45130A411DE585780040C7C1 /* SmartBluetooth.xcdatamodeld in Sources */,
 				45130A6B1DE585AB0040C7C1 /* SCUBluetoothDeviceManager.m in Sources */,
 				45130A381DE585780040C7C1 /* AppDelegate.m in Sources */,
-				CAB107E91DEBD4CE0045708E /* MainViewController.m in Sources */,
+				CAB107E91DEBD4CE0045708E /* SCUMainViewController.m in Sources */,
 				45130A351DE585780040C7C1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,6 +567,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SmartBluetoothTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartcodeunited.lib.bluetooth.SmartBluetoothTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -579,6 +580,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SmartBluetoothTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartcodeunited.lib.bluetooth.SmartBluetoothTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -590,6 +592,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = SmartBluetoothUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartcodeunited.lib.bluetooth.SmartBluetoothUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -601,6 +604,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = SmartBluetoothUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartcodeunited.lib.bluetooth.SmartBluetoothUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

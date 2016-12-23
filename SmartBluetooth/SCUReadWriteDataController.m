@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#import "ReadWriteDataController.h"
+#import "SCUReadWriteDataController.h"
 
 NSString *const kWriteHeaderCell = @"WriteHeaderCellIdentify";
 NSString *const kWriteCell = @"kWriteCellIdentify";
@@ -22,7 +22,7 @@ NSString *const kWriteCell = @"kWriteCellIdentify";
 #define kHexFormat @"Hex"
 #define kStringFormat @"UTF-8 String"
 
-@interface ReadWriteDataController () <UIAlertViewDelegate, SCUBluetoothDeviceManagerDelegate>
+@interface SCUReadWriteDataController () <UIAlertViewDelegate, SCUBluetoothDeviceManagerDelegate>
 
 @property(nonatomic, strong)NSMutableArray *sendDataArr;
 @property(nonatomic, strong)NSMutableArray *receivedDataArr;
@@ -31,7 +31,7 @@ NSString *const kWriteCell = @"kWriteCellIdentify";
 @property(nonatomic, copy)NSString *formatStr;
 @end
 
-@implementation ReadWriteDataController
+@implementation SCUReadWriteDataController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

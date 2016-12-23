@@ -15,10 +15,7 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "SCUBluetoothDeviceManager.h"
 
-@interface PeripheralDetailController : UITableViewController
-
-@property (nonatomic, strong) CBPeripheral *peripheral;
+@interface SCUMainViewController : UIViewController
 
 @end
